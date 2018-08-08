@@ -62,3 +62,31 @@ Not even the work which served as the base of this paper is compared in the
 evaluation.
 
 3. Confidential comments only for the editor:
+
+==============================================================================
+
+The main concerns I raised in the first revision are summarized as follows:
+
+1. Fog computing vs paper contributions:
+   The main contributions only apply to local processing (the framework only supports shared memory communication).
+2. Shared-memory concurrency:
+   The claim that threads are often cheaper than other approaches is merely speculative.
+3. Evaluation vs serial implementation only:
+   The paper should compare with other concurrent frameworks.
+
+About (1), the author justifies that shared memory communication and GPU processing speed up each node of the fog individually.
+To integrate all nodes, some form of message passing would be required (but it's still work in progress).
+About (2), the author justifies that threads are considered cheaper than processes with regards to context switches and memory accesses.
+About (3), the author acknowledges that a comparative analysis on the performance of JSucuri vs PSucuri is necessary but impossible at this point.
+
+The author justifies each of the points with reasonable arguments.
+However, I stand by my opinion that the paper should not be considered for publication in the journal yet.
+In particular, issue (3) by itself is a strong reason of objection.
+
+The author states that "it would be unfair at this point of the Java-Sucuri implementation to compare to its Python-based Sucuri implementation".
+It is also unfair to compare this work only against serial implementations of the applications at this point.
+The author justifies the choice for the applications exactly because they are "well-known stream processing applications".
+What would be a fair comparison then? I'm sure there are other frameworks in which one can implement and evaluate these applications.
+
+For a journal publication, I would expect a more consolidated and comprehensive version of the paper, with less immediate work in progress and less vital future work.
+
