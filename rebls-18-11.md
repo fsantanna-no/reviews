@@ -1,4 +1,4 @@
-3/5
+2/5
 
 # Summary
 
@@ -39,7 +39,7 @@ In the same line of growing complexity, the paper does not describe more rich
 semantics such as suspension and abortion, which are typical in
 synchronous languages.
 I suppose they can be encoded in the "Core SCCharts" but I believe the
-resulting code would not easily resemble original diagrams.
+resulting code would not easily resemble the original diagrams.
 In particular, abortion seems to be extremely hard to translate because it
 affects nested regions and states.
 
@@ -49,6 +49,12 @@ the paper.
 Most of them are also deterministic and single threaded.
 Another source of related work is the field of functional reactive programming
 languages, which sort nodes in topological order to respect dataflow
-dependency.
+dependencies.
 I believe this technique is related to the "sequentially constructive"
 semantics of SCCharts.
+
+I'm inclined to reject the paper as full/complete and suggest it as short/in
+progress paper.
+The reason is that the evaluation section, which is the main argument in
+favor of the implementation strategy, does not consider more complex examples
+to validate the claims.
