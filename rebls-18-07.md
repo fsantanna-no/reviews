@@ -8,7 +8,7 @@ apply to more explicit sub-states.
 The main section of the paper compares the implementation of a TODO-MVC
 application focusing on the behavior of the list of TODO items.
 In Elm, the implementation is scattered across the whole file and requires
-"CTRL-F" queries to understand the behavior as whole.
+"CTRL-F" queries to understand the behavior as a whole.
 If Reflex, the behavior is self-contained in a single portion of code.
 The paper then discusses the tradeoffs between the architectures with respect
 to dependencies, familiarity, easy of reading and writing, and serialization.

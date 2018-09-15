@@ -7,7 +7,7 @@ The paper first discusses how to generate a single simple chatbot through type-s
 It then proposes ReactiveML to build advanced chatbots by composing simpler ones relying on the language's control mechanisms such as processes, parallel compositions, signal communication, and preemption.
 The main section dissects the design of a complex chatbot using the techniques discussed in the paper.
 The proposed chatbot helps users to create semi-natural language business rules from natural conversations.
-As the main challenges, both the chatbot and user may lead the conversation, which creates a shared-memory recursive data structure on the fly.
+As the main challenges, in the application both the chatbot and user may initiate/lead the conversation, which requires an implementation that builds a shared-memory recursive data structure on the fly.
 
 # Evaluation
 

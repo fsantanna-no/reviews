@@ -1,5 +1,7 @@
 2/5
 
+- not very clear what is new
+
 # Summary
 
 The paper presents a visual flow-based programming environment to specify
@@ -70,18 +72,19 @@ The first experiment is well described, although I did not understand why it
 does not include the distributed part, since its the distinguishing
 characteristic of the language.
 The second experiment, I did not fully understand.
-This is the only phrase describing it more concretely: "Next, the students were
-given 30 minutes to program their own campaign and an additional 30 minutes to
-go out in the field and collect data for their newly created campaigns."
-Overall, I found the experiments still in early stage to draw any conclusions
+This is the only phrase I could find describing it more concretely: "Next, the
+students were given 30 minutes to program their own campaign and an additional
+30 minutes to go out in the field and collect data for their newly created
+campaigns."
+I found the experiments to be still in early stages to draw any conclusions
 about the language.
 
 I wonder if the retired Yahoo Pipes has any relevance in the field of FBP and
 if its cloud aspect is related to this work.
 
-I would recommend this work as a short paper, but I believe it requires more
-discussion on the expressiveness of the language and more work on the
-evaluation.
+Overall, I believe this paper requires more discussion on the expressiveness of
+the language and more work on the evaluation.
+I would recommend it as a work-in-progress paper.
 
 - Minor issues:
 
