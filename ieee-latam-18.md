@@ -45,3 +45,12 @@ The section on related work is very short and could benefit with a discussion
 on state-of-the-art JVMs.
 In other words, how is Jikes positioned in the spectrum of JVMs in terms of
 performance?
+
+# Review
+
+I still consider that the evaluation lacks an appropriate basis of comparison.
+This is a paper on performance gains, but the basis of comparison is an
+outdated and non-optimized VM.
+If the paper wants to compare with Zhao's algorithm it should include it, at
+least a reimplementation of it.
+Otherwise, it should use a modern environment even if it is harder to modify.
