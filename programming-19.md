@@ -24,43 +24,42 @@ iTasks is the only language to explicitly embrace it.
 In order to better motivate the paper, I would expect a more elaborated
 introduction to business processes, workflows, and the whole idea of
 task-oriented programming.
-Overall, the proposed language seem to be excessively tighted to iTasks
+Overall, the proposed language seems to be excessively tightened to iTasks, and
+the core insights and contributions of the paper became unclear or, at least,
+not completely independent from iTasks.
 
+Regarding the discussion on the expressiveness (and lack of), I believe the
+paper can be much improved.
+First, it uses different names for typical programming mechanisms.
+The paper could at least start with analogies to variables, sequences,
+conditionals, loops, etc., and then discuss the differences.
+Then, it could discuss what's not there.
+For instance, the lack of a loop construct is surprising and not discussed at
+all!
+The paper has no throughout discussion of the limitations of the language.
+For instance, which obvious features could not be added to the guiding example?
+Why not and what are the consequences?
+I could not find the actual semantics of the parallel construct.
+What if two branches access the same shared data?
+How do exactly they execute?
+What do I have to worry and what I don't have to worry about concurrency
+problems?
+In future work, the paper mentions the lack of unilateral termination of the
+parallel construct.
+This mechanism is far from trivial (e.g., presence of shared memory, locks,
+open resources, etc.) and is discussed in extent in the community of
+synchronous languages (e.g., see "Preemption in concurrent systems").
+Synchronous languages support events, logical parallelism, abortion, shared
+memory, and determinism, and seem to cover the semantic requirements of
+task-oriented programming.
+I suggest to compare with them in related work.
 
+There is no evaluation of the language in the paper, such as user studies,
+discussion of complex examples, evaluation of complete applications, etc.
+In the end, we have no strong evidences that the contributions are actually
+delivered.
 
-mentioned in the paper is 
-
-
-loops?
-
-- no independent idea from itasks
-
-- "Task oriented programming"
-    - paradigma com uma unica linguagem?
-
-- Comparação com iTasks
-    - qual a relevância disso?
-
-- Ver o que eu escrevi sobre o trabalho do aluno do Wolf
-
-- concurrency in stores
-
-- diff entre args e contexto
-    - ex, uma das setas mostra mesmos ids em ambos
-
-- descritivo, pouco critico
-
-- exemplo de paralelismo
-
-- discussao sobre expressividade
-    - o que nao é possível fazer?
-
-- apenas um exemplo
-    - sem testes com pessoas
-    - nenhum outro tipo de evaluation
-
-- no high-level description of the semantics
-
-- internal events
-
-- https://link.springer.com/chapter/10.1007/3-540-57529-4_44
+I like the problem, I like the design, and I like most of the text.
+However, my opinion is that the paper submission is yet precipitate.
+If the paper is not accepted, I would recommend a less descriptive text in
+favor of more critical discussion.
