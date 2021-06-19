@@ -1,0 +1,26 @@
+# Summary
+
+The paper describes the experience of using an online learning platform in
+Portuguese.
+The platform is based on OCAML and was used during the pandemics with 300
+students with different levels of knowledge (1st-3rd years).
+The platform is web based and aggregates an IDE, exercises, auto correction,
+theory, class management, etc.
+The experience is still going on but the results are positive.
+
+# Evaluation
+
+The topic is relevant considering the current scenario of remote classes.
+The scope of the paper is very broad and I could not extract the actual
+contributions of the paper.
+For instance, what exactly does "o resultado foi muito positivo" mean?
+What are the metrics to be considered? What is to be evaluated and how?
+It it the tool, the methodology, or the chosen programming language?
+It is not clear if the authors participate in the development of the learning
+platform or to what extent they made modifications to it.
+Assuming the teaching methodology is an expected contribution, it is not clear
+how the class activities evolve during the period.
+A concrete scenario could be valuable.
+For instance, how do teachers and students interact during the week.
+The choice for the tool and language was never justified or compared to other
+alternatives.

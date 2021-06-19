@@ -1,0 +1,22 @@
+# Summary
+
+The paper evaluates the speed and energy efficiency of WebAssembly in
+comparison to JavaScript and C.
+It compares 10 sorting algorithm varying the input size.
+The results show that WASM is consistently more efficient than JS, but to a
+small fraction.
+
+# Evaluation
+
+The paper is well written.
+The scope is well determined as well as the limitations of the evaluation.
+I wonder how difficult it would be to add much more examples and input sizes.
+A larger set would strengthen the conclusions.
+The abstract, introduction, and conclusion could be more explicit about the
+gains with WASM.
+I could only spot the exact numbers at the end of the discussion.
+I also expected to see what were the expectations before the evaluation.
+Even in related work these numbers do not appear, but only abstractly ("much
+better", "much more", "very differently").
+The paper argues about its infancy, but does not discuss why and to what extent
+WASM's performance could improve.

@@ -1,0 +1,26 @@
+Firstly, two general observations about the text:
+    - All citations appear as [?], being impossible to check them. This issue is very easy to spot and I can't see a reason that explains why the paper was submitted as is.
+    - The English used in the paper needs a considerable revision. Nevertheless, it was possible to understand the text.
+
+# Summary
+
+The paper proposes a new method to generate verification monitors from LTL specifications.
+The method relies on existing technology such as JavaMOP and SPOT.
+The proposed translation method uses 6 steps: (1) inverses the LTL specification, (2) uses SPOT to generate an NBA, (3) reduces the state space with fair simulation, (4) obtains an NFA, (5) obtains a DFA, (6) generates the monitor with JavaMOP.
+The experimental results show an improvement around 10% percent of time and memory considering 4 testing properties.
+                                                                                
+# Evaluation
+
+The reasoning behind the proposed steps is never discussed, so it is hard to understand why this method has been proposed in the first place.
+Is it just to minimize the number of states?                                    
+Does it affect the exponential behavior of the original method?                 
+Why the proposed method inverses the LTL but not the original method?           
+In the new method, the conversion from LTL to NBA uses SPOT, which seems to be a third-party tool.
+However, it is not clear how the original method makes the same conversion (maybe internally in JavaMOP?).
+Is it possible that this introduced tool is also responsible for the improvements in performance?
+
+The actual scientific contribution of the paper is not very explicit. Is it only the method arrangement in 6 steps? If so, what is the actual insight?
+Even though the paper shows gains in performance, they are mostly under 10% in comparison with the original method. In some cases, the gains are negligible.
+Also, the benchmark is composed of only 4 properties which were never justified.
+Why did you choose these specific properties? Why only four?
+

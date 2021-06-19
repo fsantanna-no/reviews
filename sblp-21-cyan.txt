@@ -1,0 +1,74 @@
+# Summary
+
+The paper shows how to include support "Concepts" a posteriori in the
+programming language Cyan.
+The implementations relies on compile-time meta programming to build a DSL
+to describe constraints on generic types.
+The DSL can describe non-trivial constraints between types, such as querying
+for the existence of methods.
+
+# Evaluation
+
+From the Introduction, I could extract two main contributions:
+
+1. Unlike any other language, concepts are implemented using metaprogramming
+   through a compile-time metaobject.
+2. The result is a very expressive system that features a Domain Specific
+   Language (DSL) for constraint specification.
+
+The paper is very descriptive about the system and the feature it implements,
+but I miss a more critical discussion to back the contribution claims with more
+evidences.
+For instance, once one has access to the AST, it is not surprising that it is
+possible to support Concepts or any other feature.
+
+About claim 1, I miss a discussion on why other languages with metaprogramming
+and/or macros do not provide concepts.
+Is it because they simply did not bother or is it something more fundamental?
+Would it be possible to use similar techniques in Racket (or other languages)?
+About claim 2, what exactly it means to be very expressive?
+This discussion appears in Related Work but the expressiveness is never
+described in detail in the core of the paper.
+
+Overall, I see this work more as a complex/hard use case on the expressiveness
+of metaprogramming in Cyan than as about Concepts in Cyan per se.
+For instance, there is no use of Concepts in more complex applications, nor a
+more insightful discussion about its design, nor a more formal presentation of
+the semantics, its completness/soundness, or related considerations.
+In this sense, Concepts seem more like a toy/adhoc feature inserted into the
+language.
+Investing on these discussions could help on claim 2.
+
+I had a hard time understanding metaobjects, which could help on claim 1.
+I could not entirely grasp how it work since possibly relevant explanations
+were left out (e.g., "This paper will not detail how the compiler links the
+name to the metaobject").
+Are metaobjects always evaluated at compile time?
+Is the language inside @insertCode the same as it is outside?
+If so, why call it a DSL?
+It's not clear how this code interacts with the surrounding code.
+
+IIUC, objects, interfaces and generics are primitive features, but not
+concepts.
+Why is that? Would it be possible to have any of these features as not
+primitive?
+Are Concepts an after thought that should actually be primitive?
+What are the tradeoffs?
+
+"In particular, there is a metaobject whose name is concept defined in package
+cyan.lang."
+Is this metaobject ever presented in the paper?
+I believe this is important to back claim 1.
+How intricate is this code? How feasible is to a Cyan programmer to write it?
+The "has" function is from Cyan or from the Concept metaobject?
+
+"After that, the compiler calls a method of metaobject concept that interprets
+the DSL code (which does the checks and issues error messages, if any)."
+Again, I believe it is important for the readers to open this box in order to
+evaluate claim 1.
+
+"The kinds of statements of the concept language of metaobject concept and
+their meanings follow."
+Aren't these statements (is/implements/etc) from Cyan metaobjects in general?
+
+Are there any concerns related to variance in typing rules/predicates?

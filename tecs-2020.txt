@@ -1,0 +1,85 @@
+# Summary
+
+This paper proposes OO extensions to SCCharts, a synchronous Statecharts dialect.
+The main proposed extension mechanism is inheritance, which allows to extend methods and regions from base classes with default behavior, thus allowing to reuse code.
+The code for base classes is expanded in subclasses much like hygienic macro expansions and function inlining, which is typical of how other synchronous languages deal with similar mechanisms.
+A didactic example illustrates how to extend a state machine and modify a specific functionality without touching the other parts of the model.
+Another didactic example introduces the problem of scheduling concurrent regions that access the same object with shared state.
+Then, the paper discusses how the former example would be more complex to model if inheritance were not supported.
+The new mechanism is already integrated in the project's IDE which allows for keeping the modeling and generated code in sync.
+The language supports integration with a host language allowing for reuse of existing code. With proper interface annotations, classes in the host language can be even augmented with state machines.
+Finally, the paper proposes scheduling directives and policies to enforce deterministic behavior to concurrent regions sharing an object.
+
+# Evaluation
+
+I have read the Introduction and Conclusion a couple of times, but I still cannot extract the real/fundamental scientific contributions of the paper.
+I can praise the engineering efforts and added value of these extensions to the Kieler project, but I believe the scientific advances in programming languages and/or embedded systems should be stated clearer.
+For instance, the "Contributions and Outline" enumeration is too much attached with SCCharts, which makes it hard to extract any fundamental aspect in the proposal.
+The Related Work describes a dozen of works with similar goals (introduce OO) and in similar contexts (Statecharts derivatives). Surely there are differences between the approaches but, again, I cannot see how they are fundamental.
+
+The proposed inheritance mechanism is rather restrictive as well.
+First, it does not support any kind of dynamic behavior, such as dynamic allocation and polymorphism (neither subclass or interface based).
+The discussion about the limitations is somewhat evasive:
+- "...This facilitates analyzability and bounds memory..."
+- "...that may cause runtime overheads or influence static code analysis..."
+- "...we circumvent the need to adapt to different memory management mechanisms
+      in target languages..."
+- "...which is a conservative approach and not uncommon for the embedded
+      systems domain..."
+Some authors argue that dynamic dispatching is the essence of OO [1], so I would expect that these limitations would be discussed to some reasonable extent.
+There are many OO languages without inheritance, but few (none?) without dynamic dispatching.
+Second, the lack of subtyping is even more surprising given that it typically comes along with inheritance and does not require virtual methods.
+This limitation does not seem to be justified in the paper.
+If I understood correctly, this limitation does not allow typical OO patterns such as passing objects of the same lineage, having factory objects or even heterogeneous arrays.
+Third, another limitation seems to be that all objects are globals, however it is not entirely clear if this is the case.
+Even though dynamic allocation is not allowed, I would expect at least stack-allocated objects, or objects whose scope and lifetime are tied to states or regions.
+These possibilities are not discussed in the paper, so I'm assuming they are not supported.
+Fourth, methods cannot contain synchronous statements. Why?
+
+I'm not familiar with the memory management of regions and states that terminate in SCCharts.
+Immediate termination is typical of synchronous language and that could affect the behavior of nested objects in many unexpected ways.
+For instance, considering how some synchronous constructs behave, the following sentence may sound disingenuous:
+- "...it is already possible to use dynamic instantiation and references with SCCharts by using the respective host code functions of the target language, but this way the programmer explicitly leaves the space of the deterministic semantics of SCCharts..."
+For instance, in the presence of termination, the programmer would simply have no way to control memory deallocation explicitly.
+
+The strongest argument for inheritance is on based on the common/default behavior through the "extends" mechanism.
+The only discussion about the consequences of not having such mechanism is when presenting the "LogginApplicationNoOO" example.
+If this is the main argument to justify inheritance, I would expect a deeper discussion here.
+Is it only through procedural parameters and higher order functions that common behavior could be simulated?
+How non-OO languages without higher order functions deal with reuse?
+Wouldn't composition be enough for most cases? I mean, externalize the common behavior in another class and than compose it in the classes that require this behavior without resorting to inheritance.
+Am I missing something here?
+
+The steam boiler example is condensed in a single paragraph with an auxiliary image that is unreadable and left without further explanations.
+How deep are the inheritance relationships in the program?
+Does it ever reach two levels?
+Is this the only real example that has been implemented with this new mechanism?
+If you also have this example without inheritance, how do they compare?
+How did you address reuse in the original version?
+
+About the scheduling semantics and connection with the host language, how are they different from the existing mechanisms to program data structures and access the host language?
+I suppose some form of procedural programming were already supported as well as system calls. I do not see how the addition of classes would make them more or less complex.
+For instance, if shared memory were already allowed, wouldn't the same problems of the Counter Application also exist?
+How does the language deal with resource allocation in the host language?
+What kind of functionality should programmers be allowed to resort to the host
+language?
+
+The overall tone of the paper is very descriptive about the extensions and other general features which are presented and exemplified in extent.
+However, I believe some parts that are more important should be highlighted in separate with a more critical and/or analytical tone.
+
+The Sections 4 and 5 (particularly Section 5) have much more insights and specificities that, in my opinion, could be the main focus of the paper.
+However, as stated above, it is not clear for me if they only apply to the new OO extensions or if they are existing ideas (published) that were extended to also accommodate OO.
+Another concern is on relying on the programmer to designate the priorities properly.
+How many real examples have been implemented with this mechanism?
+Does the steam boiler example use this mechanism?
+
+I opted to recommend a major review because, although it's not hard to reposition the paper towards the last two sections, I do not see that they have been evaluated.
+
+- My main critique is on the many OO limitations imposed by the design, some of them unjustified.
+- What is left is code reuse through inheritance, which arguably is neither novel or complex.
+- Related work is mostly descriptive with no substantial comparisons.
+- In my opinion, the last two sections are the most interesting and should set the tone of the paper.
+- However, I do not see evidence that these mechanisms have been evaluated.
+
+[1] Jonathan Aldrich. Onward! 2013.
+    The power of interoperability: why objects are inevitable.
