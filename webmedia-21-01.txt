@@ -1,0 +1,32 @@
+3/4
+
+Sistema de Monitoramento Inteligente da COVID-19 em SP
+
+O SIMI é um sistema de monitoramento para apoiar a formulação e avaliação das ações de SP no enfrentamento da COVID.
+
+O sistema suporta a análise de quatro variáveis:
+  (i) Isolamento social via big data das operadoras;
+  (ii) Mobilidade veicular interestadual;
+  (iii) Situação epidemiológica;
+  (iv) Situação econômica.
+
+O vídeo linkado mostra o funcionamento do sistema.
+
+O texto está um pouco confuso e tem pouca profundidade técnica.
+O uso excessivo de voz passiva dificulta o entendimento do que foi implementado e o que foi reusado de outros projetos.
+Por exemplo, o Interscity é algo externo ou também foi desenvolvido para esse trabalho?
+Também não explicita os atores envolvidos no desenvolvimento e uso do sistema.
+- Quem exatamente está usando esse sistema?
+- Que tipo de análise concreta está sendo feita?
+- Quais decisões práticas já foram tomadas?
+Os exemplos no vídeo mostram análises posteriores aos fatos, por exemplo, que a taxa de isolamento aumento após um lockdown.
+Mas houve alguma medida que foi tomada por causa da plataforma?
+
+As tecnologias utilizadas, desafios de desenvolvimento, formato e tamanho dos dados não foi discutido.
+Qual é a frequência de atualização? Como esses dados chegam até a plataforma? Que tipo de algoritmos são executados em cima dos dados? É só uma extração simples para visualização ou há algoritmos mais complexos?
+Existe algum gargalo no sistema?
+
+Como esse sistema evoluiu até esse ponto e qual é a expectativa para o futuro?
+Há alguma intenção de generalizar esse sistema para aplicações similares?
+Que aplicações? Já existem demandas que poderiam ser atendidas?
+

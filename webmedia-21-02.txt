@@ -1,0 +1,37 @@
+2/4
+
+Uma plataforma para impulsionar ideias e soluções na retomada da economia
+
+- Rejeitar fracamente.
+- O trabalho apresenta uma plataforma para cadastro de ideias e startups.
+- O texto explica bem o escopo e operação do sistema.
+- Não há vídeos ou telas demonstrativas.
+- Não há nenhuma análise da efetividade da plataforma.
+
+Este trabalho apresenta a especificação e a implementação do Revive Negócio, uma plataforma que permite o cadastro de ideias e startups capazes de mitigar os problemas na economia, advindos da epidemia da COVID-19. Seu objetivo inicial é impulsionar idealizadores de ideias e de startups a cadastrarem, por exemplo,produtos, protótipos ou processos metodológicos, de diversas áreas, tais como, mas não limitados a: saúde, economia, educação e tecnologia.
+
+Não ficou claro porque o escopo da plataforma se restringe à retomada da economia.
+Isso significa que a plataforma será retirada após a pandemia?
+
+Também fiquei em dúvida sobre a ferramenta ser submetida ao Webmedia.
+É pelo fato de ser uma ferramenta Web ou pelo objetivo dela em si?
+
+O trabalho não exibe nenhuma demonstração em vídeo ou screenshots.
+Tudo indica que é uma sequência de formulários em formatdo de Wizard, mas não há uma descrição mais detalhada sobre a operação e interface do usuário.
+
+O que se espera dos atores envolvidos?
+Qual o grau de cometimento a que eles devem se submeter?
+Quanto tempo demora cada etapa do processo em média?
+
+A aplicação parece um simples banco de dados para armazenar as informações básicas.
+Há algum tipo de processamento mais complexo?
+Esse tipo de plataforma já não existe?
+Quais seriam os trabalhos relacionados?
+
+Eu senti falta de um exemplo prático que ilustre o fluxo da apresentação.
+Como uma boa ideia e uma má ideia percorreriam as etapas da plataforma?
+
+O texto usa o futuro como tempo verbal.
+Não está claro qual é o grau de maturidade da plataforma.
+O texto também diz que jáse encontra em operação no governo do Ceará.
+Já existem usos reais? Quantos projetos? Qual é a avaliação até o momento?
