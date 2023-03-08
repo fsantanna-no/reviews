@@ -1,0 +1,42 @@
+# Sumário
+
+O artigo analisa a eficácia de diversas técnicas de ofuscação e otimização de
+código para detectar clones de programa.
+O artigo propõe 4 cenários variando as informações disponíveis para
+classificadores e plagiadores e usa uma base de mais de 100 programas e
+diversos transformadores, classificadores, e ofuscadores.
+O artigo conclui que otimizações de código podem ser mais efetivas que
+ofuscadores, que histogramas de opcodes são efetivos para a representação de
+programas e que otimizações podem reverter o efeito de ofuscadores, funcionando
+como normalizadores de programa.
+
+# Avaliação
+
+O artigo está muito bem escrito, especialmente para quem não tem contato com
+essa linha de pesquisa.
+
+Uma dúvida que surgiu é se faria sentido combinar diversos ofuscadores e
+otimizadores em cenários ainda mais adversos.
+
+Pelos resultados, é possível inferir que o uso do O-LLVM seria o mais difícil
+de combater. O artigo não parece ter dado muita importância para esse
+resultado. O quanto a existência desse tipo de ofuscador inviabilizaria o
+trabalho de detecção de clones? Existem ofuscadores ainda mais efetivos?
+
+O artigo poderia dar mais informações sobre a base de programas e a escolha dos
+conjuntos Fc e Fp. Pelo que pude entender, são 104 programas com 500 soluções,
+o que daria uma média de 5 soluções para cada problema. Como essas soluções
+foram divididas?
+Um outro fator a ser discutido é se a natureza dos problemas poderia ter
+influência nos resultados obtidos? Por exemplo, faria diferença se fossem
+usados programas reais tipo Android apps, em vez de problemas simples e
+didáticos de competição?
+O tamanho e complexidade do problema influencia o efeito de classificadores?
+Qual o grau de diferença entre os histogramas em Fc? Isso também poderia fazer
+diferença na detecção de clones?
+
+Na comparação com trabalhos relacionados, o artigo diz que os Jogos 0 e 1 podem
+ser encontrados na literatura, mas não os Jogos 2 e 3. O artigo também defende
+como uma contribuição original o uso de otimizadores como normalizadores entre
+programas originais e ofuscados. Eu não tenho como avaliar essas duas
+constatações.

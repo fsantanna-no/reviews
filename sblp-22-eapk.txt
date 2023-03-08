@@ -1,0 +1,50 @@
+# Summary
+
+The paper proposes to detect "energy patterns" from decompiled code instead of
+original source code.
+The methodology relies on open source Android applications to ensure that both the
+decompiled and original sources produce the same number of patterns.
+From a sample of over 200 applications, the paper concludes that it is feasible
+to use decompiled code to detect energy patterns.
+
+# Evaluation
+
+The paper is well written, the motivation is justified, the scope is well
+delimited, the problem is interesting, and the methodology is reasonable.
+
+Nevertheless, I believe the work should be expanded further to answer the
+research question with more confidence ("Can static analysis of decompiled code
+from Android applications be a viable method of detecting energy patterns?").
+
+The paper is based on previous work to find "energy patterns", but it does not
+expose the expected gains from their energy-efficient alternatives, e.g.:
+    - the expected economy
+    - the most significant patterns
+    - the amount of changes in patterns that are required to achieve
+      significant economy gains
+The paper could give us some expectations to see if the results would actually
+have any practical effect.
+
+Also, since the paper only detects the patterns, but makes no analysis on the
+actual energy efficiency, why restrict itself to energy patterns only?
+Wouldn't this tool work for any kind of pattern?
+Is there existing work that decompiles code to detect other patterns?
+
+In Section 4.1, the paper restricts itself to only 3 patterns.
+Why not implement all 11 patterns? From Listing 6, they do not seem significant
+when compared to all work put into the paper.
+
+I could not find the size of the codebase in the paper (e.g., lines of code in
+all 236 apps).
+From Figure 3, it seems that only 550 patterns have been detected considering
+all apps.
+If this interpretation is correct, then only 2-3 patterns have been found in
+each app.
+Depending on the size of the codebase, maybe these numbers have no effect on
+the energy consumption, which is the ultimate goal.
+I would expect a discussion about this issue, specially considering the choice
+to implement only 3 patterns.
+
+Also, related to the 550 patterns found, this number seems to be small enough
+to be verified by hand. That could explain the differences between source and
+PAK and help improve the detection tool.

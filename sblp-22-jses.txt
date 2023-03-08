@@ -1,82 +1,111 @@
 # Sumário
 
-The paper shows how to include support "Concepts" a posteriori in the
-programming language Cyan.
-The implementations relies on compile-time meta programming to build a DSL
-to describe constraints on generic types.
-The DSL can describe non-trivial constraints between types, such as querying
-for the existence of methods.
+O artigo defende o uso de JavaScript no contexto de IoT.
+Para isso, analisa códigos típicos, novas funcionalidades da linguagem e uso
+de energia.
+Como resultados da análise, o artigo sustenta que JS pode gastar até 35% menos
+energia e que pode melhorar a qualidade do código.
 
 # Avaliação
 
-- O uso do termo "code smell" não parece muito adequado. O termo é mais usado
-  para detectar códigos problemáticos e não "fragmentos de código típicos" como
-  me pareceu sugerido pelo artigo (que estaria mais para "best practices").
+## Pontos positivos:
 
-## Abstract
+O artigo apresenta a linguagem JS como uma opção viável em plataformas IoT de
+32 bits, que podem se beneficiar do rico ecossistema e suporte à programação
+orientada a eventos: callbacks, funções assíncronas, bibliotecas de rede,
+versatilidade de ambientes.
 
+O trabalho contextualiza os requisitos e limitações de IoT, o que sugeriria o
+uso de outras linguagens.
+Isso motiva o uso de JS como uma alternativa não óbvia.
+Em seguida, o trabalho enumera o quanto JS pode trazer de benefícios para esse
+ambiente.
+A metodologia envolve bastante trabalho para analisar códigos típicos, melhorá-
+los com novas técnicas, medir o desempenho e uso de energia, e ainda fazer
+comparações entre JS e C.
+A Figura 1 ilustra bem o processo adotado e as tabelas em sequência detalham
+exatamente cada caso que foi analisado.
+Os resultados também estão bastante detalhados, mostrando que análise dos casos
+foi bem estensa.
 
+No geral, o trabalho é bem estenso e abrange diversos aspectos de IoT e
+linguagens de programação, mas não se aprofunda muito em cada aspecto.
 
-From the Introduction, I could extract two main contributions:
+Não está muito claro quais são as contribuições principais do trabalho.
+O abstract diz que JS *pode* ser mais econômico em energia e *pode* ter uma
+qualidade de software melhor.
+Até que ponto essas descobertas se estendem (plataformas/aplicações)?
+A contribuição principal são os resultados ou a metodologia dessa análise?
 
-1. Unlike any other language, concepts are implemented using metaprogramming
-   through a compile-time metaobject.
-2. The result is a very expressive system that features a Domain Specific
-   Language (DSL) for constraint specification.
+A defesa de JS no contexto de IoT se baseia em (i) uma análise de códigos
+existentes e (ii) uma comparação com códigos em C.
+Não ficou claro para mim qual exatamente é o objetivo do item (i).
+A Seção 3.1 indica que a análise é para melhorar os códigos existentes.
+Sendo assim, a defesa por JS se restringe somente a códigos após essas
+melhorias? Ou é uma defesa independente dessas melhorias?
 
-The paper is very descriptive about the system and the feature it implements,
-but I miss a more critical discussion to back the contribution claims with more
-evidences.
-For instance, once one has access to the AST, it is not surprising that it is
-possible to support Concepts or any other feature.
+A Seção 4.1 está comparando JS com JS e não com C.
+Qual exatamente é o objetivo dessa comparação?
+Ela parece uma contribuição extra que não está contextualizada no artigo.
+A lista de code smells possui títulos com conotação positiva (iterator) e
+negativa (long parameters).
+Entendo que a ideia é pegar códigos com problemas e usar a técnica com
+conotação positiva, mas isso não está muito claro no texto.
+A lista também possui ganhos objetivos (memória) e subjetivos (legibilidade) e
+não está claro como essas características se relacionam com a análise
+posterior.
+A tabela 2 não ajuda nessa explicação: qual seria a relação entre a
+funcionalidade de `trimStart` e a análise de desempenho e/ou qualidade?
+Me parece uma biblioteca que poderia facilmente ser desenvolvida pelo
+programador, inclusive para uso em C.
 
-About claim 1, I miss a discussion on why other languages with metaprogramming
-and/or macros do not provide concepts.
-Is it because they simply did not bother or is it something more fundamental?
-Would it be possible to use similar techniques in Racket (or other languages)?
-About claim 2, what exactly it means to be very expressive?
-This discussion appears in Related Work but the expressiveness is never
-described in detail in the core of the paper.
+A comparação com C é na verdade uma comparação com o C/Arduino que utiliza uma
+estrutura de código particular.
+Essa estrutura não necessariamente é a utilizada por outras plataformas mais
+profissionais, particularmente pela questão de consumo de energia.
+Seria interessante comparar com códigos em C com a estrutura orientada a
+eventos, mais similar a escolhida para JS (e.g., nesC).
+A discussão sobre os experimentos não tenta justificar as razões pelas quais os
+resultados aparecem.
+Por exemplo, no `Exp-1`, por quê o programa em JS seria mais eficiente?
+Os códigos sequer são mostrados.
+No `Exp-2`, o código em C me parece mais legível (e não o contrário), sendo
+inclusive uma das razões pelas quais o Arduino optou por esse modelo de loop.
+No `Exp-3`, a argumentação sobre a compilação de JS também vale para C, o que
+não justifica os ganhos de JS.
+Os códigos da Seção 4.2 não utilizam as APIs da Seção 4.1, o que torna as duas
+análises (JS vs JS) e (JS vs C) desconectadas.
 
-Overall, I see this work more as a complex/hard use case on the expressiveness
-of metaprogramming in Cyan than as about Concepts in Cyan per se.
-For instance, there is no use of Concepts in more complex applications, nor a
-more insightful discussion about its design, nor a more formal presentation of
-the semantics, its completness/soundness, or related considerations.
-In this sense, Concepts seem more like a toy/adhoc feature inserted into the
-language.
-Investing on these discussions could help on claim 2.
+Os números da análise de código fonte também não são justificados.
+Além disso, os códigos parece extremamente simples para qualquer tipo de
+comparação.
+Os recursos mais ricos de JS, tais como funções assíncronas, não são discutidos
+na comparação.
 
-I had a hard time understanding metaobjects, which could help on claim 1.
-I could not entirely grasp how it work since possibly relevant explanations
-were left out (e.g., "This paper will not detail how the compiler links the
-name to the metaobject").
-Are metaobjects always evaluated at compile time?
-Is the language inside @insertCode the same as it is outside?
-If so, why call it a DSL?
-It's not clear how this code interacts with the surrounding code.
+Tanto a análise de desempenho quanto a de tarefas típicas estão restritas a
+pequenas comparações (micro benchmarks e códigos simples).
+Até que ponto essa análise se estende para situações mais realísticas?
 
-IIUC, objects, interfaces and generics are primitive features, but not
-concepts.
-Why is that? Would it be possible to have any of these features as not
-primitive?
-Are Concepts an after thought that should actually be primitive?
-What are the tradeoffs?
+O trabalho tem uma lacuna no que diz respeito ao estado da arte e trabalhos
+relacionados:
+  - Não há uma seção específica para discutir trabalhos relacionados.
+  - Considerando as plataformas escolhidas, que têm muitos recursos, por quê a
+    comparação foi feita somente com C (e não C++)?
+  - Mesmo no ecosistema de C, existem melhorias consolidadas, tais como
+    Protothreads e nesC.
+  - Na linha de OSes para IoT também existem trabalhos de economia de energia.
 
-"In particular, there is a metaobject whose name is concept defined in package
-cyan.lang."
-Is this metaobject ever presented in the paper?
-I believe this is important to back claim 1.
-How intricate is this code? How feasible is to a Cyan programmer to write it?
-The "has" function is from Cyan or from the Concept metaobject?
+## Detalhes:
 
-"After that, the compiler calls a method of metaobject concept that interprets
-the DSL code (which does the checks and issues error messages, if any)."
-Again, I believe it is important for the readers to open this box in order to
-evaluate claim 1.
+- O título dá a impressão de que "JavaScript" seria uma nova linguagem sendo
+  proposta na artigo.
+- Não está muito claro o que significa "relacionar a linguagem JS com IoT".
+- O uso do termo "code smell" no artigo, parece ter o sentido oposto em algumas
+  situações, como se fossem "código típicos"/"best practices" e não como
+  códigos problemáticos que seria o sentido mais comum.
 
-"The kinds of statements of the concept language of metaobject concept and
-their meanings follow."
-Aren't these statements (is/implements/etc) from Cyan metaobjects in general?
+## Mais detalhes:
 
-Are there any concerns related to variance in typing rules/predicates?
+- [Abstract]  "..., em alguns f, ..."
+- [Figure 1]  "Seleção de novos recurso..."
+- [Seção 4.1] "...na maioria das execuções houveram ganhos..."
