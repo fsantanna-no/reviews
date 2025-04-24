@@ -25,7 +25,7 @@
 
 # Summary
 
-The paper proposes a monitoring system to acquire and processe data on the
+The paper proposes a monitoring system to acquire and process data on the
 usage and operational conditions of forklifts.
 The goal is to improve the safety, efficiency, and maintenance management
 of these vehicles in the industrial environment.
@@ -38,27 +38,35 @@ allowing access and analysis of data for strategic decisions.
 
 # Evaluation
 
-Even though the term IoT is recent, the use of xxx in the automation industry yyy
+Even though the term IoT is recent, the use of telemetry in the automation
+industry is pervasive.
+For this reason, it is not clear what is the scientific contribution of
+the paper.
+The paper is interesting and well written, but I'm not convinced of its
+novelty in scientific terms.
 
+The section on related work ("Preliminaries") makes an overall description
+abot the area of IoT for industrial vehicles.
+However, there is no objective comparison with the proposed system.
+It is not clear what exactly is missing in the state-of-the-art that this
+work overcomes.
+As a minor remark, the header "System Implementation and Testing:" has no
+accompaining description.
 
-not clear scientific contribution
+The paper poses some scientific questions as follows:
+"While IoT-enabled vehicle accident detection systems show promise in
+improving road safety, challenges such as data privacy, system scalability,
+and integration with existing infrastructure remain."
+However, these challenges are not discussed elsewhere.
+In particular, the "Results" section is only descriptive and makes no
+scientific discussions.
 
-related work???
+The "Methodolgy" section, which is the core of the paper provides many
+technical details about the system implementation, but again is only
+descriptive with no scientific discussions.
 
-a secao 2 faz uma discussao abstrata, sem comparar com o trabalho proposto
-
-System Implementation and Testing: esta faltando texto?
-
-qual o objteivo dessa secao?
-
-a divisao das subsecoes nao esta clara
-
-por exemplo, a proposta vai tratar disso?
-
-While IoT-enabled vehicle accident detection systems
-show promise in improving road safety, challenges such
-as data privacy, system scalability, and integration with
-existing infrastructure remain.
-
+In the opion of this reviewer, the paper describes a sound design and
+implementation of a telemetry system for industrial vehicles, but with
+no aparent scientific contributions.
 
 
